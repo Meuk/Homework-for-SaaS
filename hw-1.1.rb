@@ -3,5 +3,4 @@ def palindrome?(string)
   string.eql?(string.reverse)
 end
 
-print palindrome?("TEST? Wat dan? Echt, Waar....")
-print palindrome?("wasaa?????????????? nenennae an eanew <L:w,;r,3';r ,1;l ")
+print palindrome?("Mr. Owl Ate My Metal Worm")
