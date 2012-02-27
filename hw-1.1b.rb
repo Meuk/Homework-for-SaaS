@@ -1,5 +1,6 @@
 def count_words(string)
-  string.gsub(/\w+/)
+  words = string.downcase.scan(/\w+/)
+  Hash[ words.uniq.map { |e| [e, words.count(e)] } ]
 end
 
-puts YAML::dump(count_words("test test a test test be a tester test"))
+p count_words("test test a test test be a tester test")
