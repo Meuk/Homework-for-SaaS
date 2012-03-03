@@ -32,23 +32,18 @@ def rps_game_winner(game)
 
 end
 
-def rps_tournament_winner(games, winners)
-    p 'round start'
-    p games
-    p 'end round'
-    games.each_index { |i| 
-      if games[i][0][0].kind_of?(String)
-        wingame.merge({i => rps_game_winner(games[i])})
-      else
-        rps_tournament_winner(games[i], winners)
-      end
-    }
-    p 'winners'
-    p wingame
-    p 'end winners'
-    
-    return winners
+def rps_tournament_winner(tournament)
+    for i in 0..1 do
+            if tournament[i][1].is_a? Array then
+                        rps_tournament_winner(tournament[i])
+                                else 
+                                            tournament=rps_game_winner(tournament)
+                                                        return
+                                                                end
+                end
+        return tournament
 end
+
 players = 
 [
   [
@@ -61,4 +56,4 @@ players =
   ]
 ]
 
-p rps_tournament_winner(players, {})
+p rps_tournament_winner(players)
